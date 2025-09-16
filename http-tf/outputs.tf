@@ -10,3 +10,8 @@ output "space_heroes_json" {
   value       = jsondecode(data.http.iss.response_body)    // note the jsondecode()
 }    
 
+output "poker" {
+  description = "API that documents folks in space"
+  value       = data.http.poker.response_body
+}
+
