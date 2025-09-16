@@ -1,0 +1,17 @@
+resource "null_resource" "generate_config" {
+  provisioner "local-exec" {
+    command = <<EOT
+      echo '${templatefile("${path.module}/websockets.tftpl", {
+        port     = 8080,
+        ip_addrs = ["10.0.0.1", "10.0.0.2"]
+      })}' > config.txt
+    EOT
+  }
+}
+
+
+
+output "config_text" {
+  value = local.config_text
+}
+

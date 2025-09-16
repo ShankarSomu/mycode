@@ -1,0 +1,4 @@
+%{ for item in config ~}
+set ${item.key} = ${item.value}
+%{ endfor ~}
+
